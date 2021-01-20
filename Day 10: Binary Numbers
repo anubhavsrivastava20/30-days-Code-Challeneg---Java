@@ -1,0 +1,37 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        //Integer to string Binary
+      String a = Integer.toBinaryString(n);
+
+      //Initialize sum and count to get the consecutive 1's value
+        int sum=0;
+        int count =0;
+
+        //Loop to start
+        for (int i=0;i<a.length(); i++){
+            if (a.charAt(i)=='1'){
+                count++;
+                if (count>sum){
+                    sum = count;
+                }
+            }else{
+                count =0;
+            }
+        }
+        System.out.println(sum);
+        scanner.close();
+    }
+}
